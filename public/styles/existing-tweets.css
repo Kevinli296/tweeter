@@ -2,6 +2,10 @@ article.tweet {
   border: solid 5px black;
 }
 
+article.box-shadow {
+  box-shadow: 5px 10px;
+}
+
 article.tweet header {
   padding: 1em;
   height: 3em;
@@ -22,7 +26,7 @@ article.tweet footer {
   justify-content: space-between;
 }
 
-.test {
+.tweet-username {
   flex-grow: 1;
 }
 
@@ -40,4 +44,8 @@ img.tweet-icons {
 article.tweet h3 {
   padding-left: 1.8em;
   padding-bottom: 1em;
+}
+
+.hover-state {
+  opacity: 0%;
 }
