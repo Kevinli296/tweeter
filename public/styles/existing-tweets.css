@@ -16,15 +16,10 @@ article.tweet header {
 article.tweet footer {
   margin: 0 1.5em;
   border-top: solid 5px black;
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-bottom: 0.8em;
+  padding: 0.5em 0.3em 0.6em 1em;
   font-size: 18px;
-}
-
-article.tweet img.tweet-footer {
-  width: 5%;
-  height: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .test {
@@ -35,6 +30,11 @@ img.tweet-avatar {
   padding-left: 1em;
   padding-top: 1em;
   margin-right: 0.5em;
+}
+
+img.tweet-icons {
+  height: 2em;
+  width: 8em;
 }
 
 article.tweet h3 {
