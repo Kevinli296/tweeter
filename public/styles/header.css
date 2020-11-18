@@ -1,0 +1,16 @@
+header {
+    width: 100%;
+    height: 400px;
+    background-color: orange;
+    background-image: url('../images/transparent-background.png');
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+}
