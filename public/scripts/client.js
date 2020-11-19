@@ -68,23 +68,30 @@ ${tweet.content.text}
 $(document).ready(() => {
 
   const $form = $('.tweet-submission');
-
+  const $textArea = $('#tweet-text');
 
   $form.on('submit', function (event) {
     const text = $(this).serialize();
     event.preventDefault();
 
-    
+    if ($textArea.val() === '') {
+      alert('No input in tweet!');
+    } else if ($.trim($textArea.val()) === '') {
+      alert('Input is blank');
+    } else if ($textArea.val().length > 140) {
+      alert('Too many characters!');
+    } else {
     $.ajax({
       type: "POST",
       url: '/tweets',
       data: text
     }).then(function (data) {
-
-      console.log(data);
+      $form.trigger('reset');
+      console.log('Success: ', data);
     }).catch(function (data) {
       console.log('Error: ', data);
     });
+  }
   });
 
   const loadTweets = function() {
