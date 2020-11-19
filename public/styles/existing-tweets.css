@@ -2,10 +2,6 @@ article.tweet {
   border: solid 5px black;
 }
 
-article.box-shadow {
-  box-shadow: 5px 10px;
-}
-
 article.tweet header {
   padding: 1em;
   height: 3em;
@@ -31,7 +27,7 @@ article.tweet footer {
 }
 
 img.tweet-avatar {
-  padding-left: 1em;
+  padding-left: 0.5em;
   padding-top: 1em;
   margin-right: 0.5em;
 }
@@ -46,6 +42,15 @@ article.tweet h3 {
   padding-bottom: 1em;
 }
 
-.hover-state {
+article.tweet:hover {
+  box-shadow: 6px 6px 0px -1px rgba(97, 129, 255, 0.568);
+  opacity: 100%;
+}
+
+span.tweet-handle {
   opacity: 0%;
+}
+
+article.tweet:hover span.tweet-handle {
+  opacity: 100%;
 }
