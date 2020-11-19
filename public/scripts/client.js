@@ -31,6 +31,7 @@ const data = [
   }
 ]
 
+// FUNCTIONS ----------------------------------------------
 const renderTweets = function (tweets) {
   let result = {};
   for (const tweet of tweets) {
@@ -41,7 +42,6 @@ const renderTweets = function (tweets) {
   return result;
 }
 
-// FUNCTIONS ----------------------------------------------
 const createTweetElement = function (tweet) {
   let $tweet = $(`
 <br>
@@ -49,7 +49,7 @@ const createTweetElement = function (tweet) {
 <header class="tweet-header">
 <img class="tweet-avatar" src="${tweet.user.avatars}" />
 <span class="tweet-username">${tweet.user.name}</span>
-<span class="tweet-handle hover-state">${tweet.user.handle}</span>
+<span class="tweet-handle">${tweet.user.handle}</span>
 </header>
 <h3>
 ${tweet.content.text}
@@ -67,8 +67,6 @@ ${tweet.content.text}
 // When Document is Ready ----------------------------------
 $(document).ready(() => {
 
-  // Test / driver code (temporary). Eventually will get this from the server.
-
   const $form = $('.tweet-submission');
 
 
@@ -76,11 +74,13 @@ $(document).ready(() => {
     const text = $(this).serialize();
     event.preventDefault();
 
+    
     $.ajax({
       type: "POST",
       url: '/tweets',
       data: text
     }).then(function (data) {
+
       console.log(data);
     }).catch(function (data) {
       console.log('Error: ', data);
@@ -93,34 +93,10 @@ $(document).ready(() => {
       url: '/tweets'
     }).then(function (data) {
       renderTweets(data);
-      const $existingTweet = $('.tweet');
-      $existingTweet.on('mouseenter', function () {
-        const handle = $(this).parent().find('.tweet-handle');
-        handle.removeClass('hover-state');
-        $existingTweet.addClass('box-shadow');
-      });
-      
-      $existingTweet.on('mouseleave', function() {
-        const handle = $(this).parent().find('.tweet-handle');
-        handle.addClass('hover-state');
-        $existingTweet.removeClass('box-shadow')
-      });
-    })
+    });
 
   }
 
   loadTweets();
 
 });
-
-// $(function() {
-//   const $button = $('#load-more-posts');
-//   $button.on('click', function () {
-//     console.log('Button clicked, performing ajax call...');
-//     $.ajax('more-posts.html', { method: 'GET' })
-//     .then(function (morePostsHtml) {
-//       console.log('Success: ', morePostsHtml);
-//       $button.replaceWith(morePostsHtml);
-//     });
-//   });
-// });
