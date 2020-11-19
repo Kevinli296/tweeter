@@ -4,39 +4,18 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// DATA -------------------------------------------------
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// DATA ---------------------------------------------------
+const $form = $('.tweet-submission');
+const $textArea = $('#tweet-text');
+const $tweetsContainer = $('#tweets-container');
 
 // FUNCTIONS ----------------------------------------------
 const renderTweets = function (tweets) {
   let result = {};
+  $('#tweets-container').empty();
   for (const tweet of tweets) {
     result = createTweetElement(tweet);
-    $('#tweets-container').append(result);
+    $('#tweets-container').prepend(result);
   }
 
   return result;
@@ -64,12 +43,7 @@ ${tweet.content.text}
   return $tweet;
 }
 
-// When Document is Ready ----------------------------------
-$(document).ready(() => {
-
-  const $form = $('.tweet-submission');
-  const $textArea = $('#tweet-text');
-
+const tweetSubmit = function () {
   $form.on('submit', function (event) {
     const text = $(this).serialize();
     event.preventDefault();
@@ -81,29 +55,34 @@ $(document).ready(() => {
     } else if ($textArea.val().length > 140) {
       alert('Too many characters!');
     } else {
-    $.ajax({
-      type: "POST",
-      url: '/tweets',
-      data: text
-    }).then(function (data) {
-      $form.trigger('reset');
-      console.log('Success: ', data);
-    }).catch(function (data) {
-      console.log('Error: ', data);
-    });
-  }
+      $.ajax({
+        type: "POST",
+        url: '/tweets',
+        data: text
+      }).then(function (data) {
+        $form.trigger('reset');
+        loadTweets();
+        console.log('Success: ', data);
+      }).catch(function (data) {
+        console.log('Error: ', data);
+      });
+    }
   });
+}
 
-  const loadTweets = function() {
-    $.ajax({
-      type: "GET",
-      url: '/tweets'
-    }).then(function (data) {
-      renderTweets(data);
-    });
+const loadTweets = function () {
+  $.ajax({
+    type: "GET",
+    url: '/tweets'
+  }).then(function (data) {
+    renderTweets(data);
+  });
+}
 
-  }
+// When Document is Ready ----------------------------------
+$(document).ready(() => {
 
   loadTweets();
+  tweetSubmit();
 
 });
