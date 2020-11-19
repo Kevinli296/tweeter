@@ -5,7 +5,7 @@ $(document).ready(() => {
   $tweetText.on('input', function() {
     const value = 140 - $(this).val().length;
     const counter = $(this).parent().find('#counterNumber');
-    counter.text(value);
+    counter.val(value);
     if (value < 0) {
       counter.addClass('red-color');
     } else {
@@ -14,7 +14,3 @@ $(document).ready(() => {
     
   });
 });
-
-
-
-
