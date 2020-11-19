@@ -53,20 +53,25 @@ const createTweetElement = function(tweet) {
 const tweetSubmit = function() {
   $form.on('submit', function(event) {
     const text = $(this).serialize();
+    const $alertPrompt = $('#alert-prompt');
     event.preventDefault();
 
     if ($textArea.val() === '') {
-      alert('No input in tweet!');
+      $alertPrompt.text('⛔️ Your tweet is empty. ⛔️');
+      $alertPrompt.slideDown('fast');
     } else if ($.trim($textArea.val()) === '') {
-      alert('Input is blank');
+      $alertPrompt.text('⛔️ You cannot tweet a blank tweet. ⛔️');
+      $alertPrompt.slideDown('fast');
     } else if ($textArea.val().length > 140) {
-      alert('Too many characters!');
+      $alertPrompt.text('⛔️ Your tweet has too many characters. ⛔️');
+      $alertPrompt.slideDown('fast');
     } else {
       $.ajax({
         type: "POST",
         url: '/tweets',
         data: text
       }).then(function(data) {
+        $alertPrompt.slideUp('fast');
         $form.trigger('reset');
         loadTweets();
         console.log('Success: ', data);

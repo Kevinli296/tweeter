@@ -31,3 +31,12 @@
 .red-color {
   color: red;
 }
+
+
+h3#alert-prompt {
+  margin-top: 0.2em;
+  padding: 0.3em;
+  border: solid 4px red ;
+  color: red;
+  display: none;
+}
