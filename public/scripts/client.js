@@ -18,7 +18,6 @@ const renderTweets = function(tweets) {
     result = createTweetElement(tweet);
     $tweetsContainer.prepend(result);
   }
-
   return result;
 };
 
@@ -26,6 +25,40 @@ const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+};
+
+const getDate = milliseconds => {
+  const datePosted = new Date(milliseconds);
+  const dateNow = new Date().getTime();
+  const time = Math.abs(dateNow - datePosted);
+  let sum = 0;
+  let unit = '';
+  if (time < 1000 * 60) {
+    sum = Math.floor(time / (1000));
+    unit = 'Second ago';
+    if (sum > 1 && unit === 'Second ago') {
+      unit = 'Seconds ago';
+    }
+  } else if (time < 1000 * 60 * 60) {
+    sum = Math.floor(time / (1000 * 60));
+    unit = 'Minute ago';
+    if (sum > 1 && unit === 'Minute ago') {
+      unit = 'Minutes ago';
+    }
+  } else if (time <= 1000 * 60 * 60 * 24) {
+    sum = Math.floor(time / (1000 * 60 * 60));
+    unit = 'Hour ago';
+    if (sum > 1 && unit === 'Hour ago') {
+      unit = 'Hours ago';
+    }
+  } else {
+    sum = Math.floor(time / (1000 * 60 * 60 * 24));
+    unit = 'Day ago';
+    if (sum > 1 && unit === 'Day ago') {
+      unit = 'Days ago';
+    }
+  }
+  return `${sum} ${unit}`;
 };
 
 const createTweetElement = function(tweet) {
@@ -48,7 +81,6 @@ const createTweetElement = function(tweet) {
   </footer>
   </article> 
   `);
-
   return $tweet;
 };
 
@@ -57,7 +89,6 @@ const tweetSubmit = function() {
     const text = $(this).serialize();
     const $alertPrompt = $('#alert-prompt');
     event.preventDefault();
-
     if ($textArea.val() === '') {
       $alertPrompt.text('⛔️ Your tweet is empty. ⛔️');
       $alertPrompt.slideDown('fast');
@@ -92,50 +123,15 @@ const loadTweets = function() {
   });
 };
 
-const getDate = milliseconds => {
-  const datePosted = new Date(milliseconds);
-  const dateNow = new Date().getTime();
-  const time = Math.abs(dateNow - datePosted);
-  let sum;
-  if (time < 1000 * 60) {
-    sum = Math.floor(time / (1000));
-    unit = 'Second ago';
-    if (sum > 1 && unit === 'Second ago') {
-      unit = 'Seconds ago';
-    }
-  } else if (time < 1000 * 60 * 60) {
-    sum = Math.floor(time / (1000 * 60));
-    unit = 'Minute ago';
-    if (sum > 1 && unit === 'Minute ago') {
-      unit = 'Minutes ago';
-    }
-  } else if (time <= 1000 * 60 * 60 * 24) {
-    sum = Math.floor(time / (1000 * 60 * 60));
-    unit = 'Hour ago';
-    if (sum > 1 && unit === 'Hour ago') {
-      unit = 'Hours ago';
-    }
-  } else {
-    sum = Math.floor(time / (1000 * 60 * 60 * 24));
-    unit = 'Day ago';
-    if (sum > 1 && unit === 'Day ago') {
-      unit = 'Days ago';
-    }
-  }
-  return `${sum} ${unit}`;
-};
-
 const writeTweet = function() {
   $writeTweet.on('click', function() {
     $textArea.focus();
-  })
-}
+  });
+};
 
 // When Document is Ready ----------------------------------
 $(document).ready(() => {
-
   writeTweet();
   loadTweets();
   tweetSubmit();
-
 });
