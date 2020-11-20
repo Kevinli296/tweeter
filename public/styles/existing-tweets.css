@@ -32,15 +32,15 @@ img.tweet-avatar {
   margin-right: 0.5em;
 }
 
-img.tweet-icons {
-  height: 2em;
-  width: 8em;
+div.tweet-icons {
   opacity: 0%;
 }
 
-article.tweet:hover img.tweet-icons {
-  height: 2em;
-  width: 8em;
+div.tweet-icons i {
+  padding: 0 0.3em;
+}
+
+article.tweet:hover div.tweet-icons {
   opacity: 100%;
   cursor: pointer;
 }

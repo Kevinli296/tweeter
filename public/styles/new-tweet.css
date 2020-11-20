@@ -40,5 +40,6 @@ h3#alert-prompt {
   border: solid 4px red ;
   color: red;
   display: none;
+  justify-content: center;
+  align-items: center;
 }
-
