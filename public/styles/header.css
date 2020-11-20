@@ -13,4 +13,5 @@ header {
 .name {
     display: flex;
     justify-content: center;
+    color: #FFFF;
 }

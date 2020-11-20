@@ -32,3 +32,22 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+@media only screen and (min-width: 1024px) {
+
+  #profile-info {
+    position: fixed;
+    top: 20;
+    margin-top: 4em;
+    margin-left: 3em;
+    padding-top: 1.2em;
+    padding-left: 0;
+    width: 35%;
+    float: left;
+  }
+
+  .container {
+    width: 50%;
+    float: right;
+  }
+}
