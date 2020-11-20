@@ -2,11 +2,10 @@
 
 Tweeter is a simple single-page AJAX based Twitter clone that uses Jquery, HTML5 and CSS3. 
 
+Users can post tweets, see the dates that tweets were created as well as a few pre-existing tweets. Users will also see error prompts on invalid tweets.
+
 *This project is optimized for both desktop and mobile users.*
 
-Users can post tweets, see the dates that tweets were created as well as a few pre-existing tweets.
-
-Users will also see error prompts on invalid tweets.
 
 ## Dependencies
 
