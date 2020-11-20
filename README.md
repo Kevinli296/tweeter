@@ -1,6 +1,8 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone that is optimized for both desktop and mobile.
+Tweeter is a simple single-page AJAX based Twitter clone that uses Jquery, HTML5 and CSS3. 
+
+*This project is optimized for both desktop and mobile users.*
 
 Users can post tweets, see the dates that tweets were created as well as a few pre-existing tweets.
 
