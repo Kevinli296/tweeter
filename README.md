@@ -1,17 +1,52 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone that is optimized for both desktop and mobile.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+Users can post tweets, see the dates that tweets were created as well as a few pre-existing tweets.
 
-## Getting Started
-
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+Users will also see error prompts on invalid tweets.
 
 ## Dependencies
 
-- Express
 - Node 5.10.x or above
+- Express
+- Body-parser
+- Chance
+- Nodemon
+- Md5
+
+## Installation
+
+#### Use [NPM](https://www.npmjs.com/package/npm) to install Tweeter.
+```
+npm install
+```
+
+## Getting Started
+#### To begin using Tweeter, start your server:
+```
+npm run local
+```
+
+PORT is default set to 8080.
+
+#### To run Tweeter:
+```
+npm start
+```
+
+- Go to http://localhost:8080 to begin tweeting away!
+
+## Bug Fixes/Changes
+```
+v1.0.0 (Released 11-19-2020)
+- App released!
+```
+## Final Product
+
+!["Screenshot of the Tweeter app in Desktop view"](https://github.com/Kevinli296/tweeter/blob/master/docs/Tweeter-app-desktop-view.jpg?raw=true)
+
+!["Screenshot of the Tweeter app in Mobile view"](https://github.com/Kevinli296/tweeter/blob/master/docs/Tweeter-app-mobile-view.jpg?raw=true)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
