@@ -1,4 +1,3 @@
-/* @media only screen and (min-width: 768px) and (max-width: 1024px) { */
 article.tweet {
   border: solid 5px black;
 }
@@ -36,6 +35,14 @@ img.tweet-avatar {
 img.tweet-icons {
   height: 2em;
   width: 8em;
+  opacity: 0%;
+}
+
+article.tweet:hover img.tweet-icons {
+  height: 2em;
+  width: 8em;
+  opacity: 100%;
+  cursor: pointer;
 }
 
 article.tweet h3 {
@@ -57,73 +64,3 @@ span.tweet-handle {
 article.tweet:hover span.tweet-handle {
   opacity: 100%;
 }
-
-/* } */
-
-/* @media only screen and (min-width: 1024px) {
-
-  section#tweets-container {
-    width: 50%;
-    float: right;
-  }
-
-  article.tweet {
-    border: solid 5px black;
-  }
-  
-  article.tweet header {
-    padding: 1em;
-    height: 3em;
-    background-color: #f4f1ec;
-    background-image: none;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    font-family: "Source Sans Pro", sans-serif;
-  }
-  
-  article.tweet footer {
-    margin: 0 1.5em;
-    border-top: solid 5px black;
-    padding: 0.5em 0.3em 0.6em 1em;
-    font-size: 18px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .tweet-username {
-    flex-grow: 1;
-  }
-  
-  img.tweet-avatar {
-    padding-left: 0.5em;
-    padding-top: 1em;
-    margin-right: 0.5em;
-  }
-  
-  img.tweet-icons {
-    height: 2em;
-    width: 8em;
-  }
-  
-  article.tweet h3 {
-    word-wrap: break-word;
-    padding-left: 1.8em;
-    padding-right: 1.8em;
-    padding-bottom: 1em;
-  }
-  
-  article.tweet:hover {
-    box-shadow: 6px 6px 0px -1px rgba(97, 129, 255, 0.568);
-    opacity: 100%;
-  }
-  
-  span.tweet-handle {
-    opacity: 0%;
-  }
-  
-  article.tweet:hover span.tweet-handle {
-    opacity: 100%;
-  }
-  
-  } */

@@ -34,7 +34,6 @@ body {
  */
 
 @media only screen and (min-width: 1024px) {
-
   #profile-info {
     position: fixed;
     top: 20;
@@ -45,7 +44,6 @@ body {
     width: 35%;
     float: left;
   }
-
   .container {
     width: 50%;
     float: right;

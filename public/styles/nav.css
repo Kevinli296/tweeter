@@ -18,3 +18,7 @@ nav {
   color: #FFFF;
   font-family: "Source sans pro", sans-serif;
 }
+
+#newTweetIcon {
+  cursor: pointer;
+}
